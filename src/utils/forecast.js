@@ -17,9 +17,11 @@ const forecast = (latitude, longitude, callback) => {
       const location = body.location.name;
       const description = body.current.weather_descriptions[0].toLowerCase();
       const temperature = body.current.temperature;
+      const windDirection = body.current.wind_dir;
       callback(
         undefined,
-        `The weather in ${location} is currently ${description}, with a temperature of ${temperature} celcius`
+        `The weather in ${location} is currently ${description}, with a temperature of ${temperature} celcius. 
+      There's a ${windDirection} wind with the speed of ${body.current.wind_speed} meters per second.`
       );
     }
   });
